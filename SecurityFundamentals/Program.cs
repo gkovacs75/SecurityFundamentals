@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication().AddCookie("GaborsAuthCookie", options =>
+builder.Services.AddAuthentication("GaborsAuthCookie").AddCookie("GaborsAuthCookie", options =>
 {
     options.Cookie.Name = "GaborsAuthCookie";
 }
@@ -26,6 +26,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
