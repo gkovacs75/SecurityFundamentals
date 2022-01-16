@@ -8,7 +8,7 @@
 
 
 ## Authentication
-![Authentication](/Authentication and Authorization.png "Authentication")
+![Authentication]("Authentication and Authorization.png")
 
 - Verify that you are who you say you are
 - Generate the Security Context
