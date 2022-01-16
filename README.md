@@ -34,19 +34,17 @@
 - a 403 will be returned if you dont have the rights to a page
 - a 401 will be returned if you are not even authenticated (logged in)
 
-ASP.NET Core Security Context
+### ASP.NET Core Security Context
 - Claims Principal Object or simply Principal
  - Contains Username, email, etc. of the logged-in-user
  - The Principal IS the user
-
 - Principal contains one or more Identities
  - e.g. Student card, Drivers license, Apartment Access Card.
  - Usually we have one identity
-
 - An Identity can contain one or more Claims
-
 - Claims are key/value pairs. e.g. Age: 40
  
+## Authorization Architecture and Flow
 
 
 
