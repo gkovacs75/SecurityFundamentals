@@ -29,15 +29,15 @@
 - The server will desearialize and decrypt the cookie and authenticate the user
 - Then we Authorize and see if the user has rights to the page or whatever
 
-
-
 ## Authorization
+
 - Verifying that the Security Context(your indentity) satisfies the access requirements
 - Each page can have different requirements so it will look at the security context to see if you have these requirements
 - a 403 will be returned if you dont have the rights to a page
 - a 401 will be returned if you are not even authenticated (logged in)
 
 ## ASP.NET Core Security Context
+![](Principal-Identity-Claim.png)
 - Claims Principal Object or simply Principal
     - Contains Username, email, etc. of the logged-in-user
     - The Principal IS the user
@@ -48,6 +48,6 @@
 - Claims are key/value pairs. e.g. Age: 40
  
 ## Authorization Architecture and Flow
-
+![](Authorization-Architecture-and-Flow.png)
 
 
