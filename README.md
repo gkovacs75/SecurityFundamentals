@@ -49,5 +49,24 @@
  
 ## Authorization Architecture and Flow
 ![](Authorization-Architecture-and-Flow.png)
+- Each page can have a different requirements
+	- Anonymous
+	- Admin
+	- HR
+	- Admin + HR
+	- Age > 18
+- Routing middleware will tell us what page the user wants
+- Authentication middleware will identify the user and will have all his info and claims
+- Authorization middleware will look at Claims from user to see if they have the rights to the page
+- If not allow, a 403 (Challenge) will be returned
+
+- Requirements can be grouped together to form a Policy
+- Apply these policies by using the Authorize attribute
+
+- For a custom sitionation such as (Age>18) we have to create a custom requirement.
+- Each Requirement has to have a corresponding Authorization handeler
+
+- Authorization middleware uses IAuthorizationService (just like the Authentication middleware uses IAuthenticationService)
+
 
 
