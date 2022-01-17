@@ -13,7 +13,8 @@ namespace SecurityFundamentals.Pages.Account
 
         public void OnGet()
         {
-
+            Credential = new Credential();
+            Credential.UserName = "admin";            
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -30,9 +31,15 @@ namespace SecurityFundamentals.Pages.Account
 
                     var claim1 = new Claim(ClaimTypes.Name, "admin");
                     var claim2 = new Claim(ClaimTypes.Email, "admin@website.com");
+                    var claim3 = new Claim("Department", "HR");
+                    var claim4 = new Claim("Admin", "true");
+                    var claim5 = new Claim("Manager", "true");
 
                     claims.Add(claim1);
                     claims.Add(claim2);
+                    claims.Add(claim3);
+                    claims.Add(claim4);
+                    claims.Add(claim5);
 
                     var identity = new ClaimsIdentity(claims, "GaborsAuthCookie");
 

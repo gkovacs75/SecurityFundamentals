@@ -65,8 +65,18 @@
 
 - For a custom sitionation such as (Age>18) we have to create a custom requirement.
 - Each Requirement has to have a corresponding Authorization handeler
-
 - Authorization middleware uses IAuthorizationService (just like the Authentication middleware uses IAuthenticationService)
+- For the custom case, you need to create a class that derives from AuthorizationHandeler
+- So, 
+    - the Policy is applied to a certain page
+    - which contains a custom requirement (Requirement1)
+    - we have a Requirement1AuthorizationHandeler to check the requirement
+    - the AuthorizationService will be invoked by the Authorization middleware
+    - which completes the check, so now you are either granted access or denied
+
+- [Authorize] - denies anonymous access
+- Core knows that your login page is: \Account\Login
+
 
 
 
