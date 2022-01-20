@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using SecurityFundamentals.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +22,13 @@ builder.Services.AddAuthorization(options =>
     {
         policy.RequireClaim("Department", "HR");
         policy.RequireClaim("Manager");
+        // Add custom requirement with 3 months probation period
+        policy.Requirements.Add(new HRManagerProbationRequirement(3));
     });
 });
+
+
+builder.Services.AddSingleton<IAuthorizationHandler, HRManagerProbationRequirementHandler>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();

@@ -34,12 +34,14 @@ namespace SecurityFundamentals.Pages.Account
                     var claim3 = new Claim("Department", "HR");
                     var claim4 = new Claim("Admin", "true");
                     var claim5 = new Claim("Manager", "true");
+                    var claim6 = new Claim("EmploymentDate", "2021-12-01");
 
                     claims.Add(claim1);
                     claims.Add(claim2);
                     claims.Add(claim3);
                     claims.Add(claim4);
                     claims.Add(claim5);
+                    claims.Add(claim6);
 
                     var identity = new ClaimsIdentity(claims, "GaborsAuthCookie");
 
