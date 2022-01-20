@@ -9,6 +9,7 @@ builder.Services.AddAuthentication("GaborsAuthCookie").AddCookie("GaborsAuthCook
     options.Cookie.Name = "GaborsAuthCookie";
     options.LoginPath = "/Account/Login"; // This is default, but can be changed
     options.AccessDeniedPath = "/Account/AccessDenied"; // This is default, but can be changed
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5); // Expire after 5 min.
 }
 );
 

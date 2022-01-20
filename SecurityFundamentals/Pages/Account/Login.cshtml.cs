@@ -14,7 +14,7 @@ namespace SecurityFundamentals.Pages.Account
         public void OnGet()
         {
             Credential = new Credential();
-            Credential.UserName = "admin";            
+            Credential.UserName = "admin";
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -47,11 +47,14 @@ namespace SecurityFundamentals.Pages.Account
 
                     var principal = new ClaimsPrincipal(identity);
 
+                    var authProperties = new AuthenticationProperties();
+                    authProperties.IsPersistent = Credential.RememberMe;
+
                     // Take ClaimsPrincipal
                     // Serialize it
                     // Encrypt it
                     // Put it in a Cookie
-                    await HttpContext.SignInAsync("GaborsAuthCookie", principal);
+                    await HttpContext.SignInAsync("GaborsAuthCookie", principal, authProperties);
 
                     return RedirectToPage("/Index");
                 }
@@ -70,6 +73,10 @@ namespace SecurityFundamentals.Pages.Account
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Required]
+        [Display(Name = "Remember Me")]
+        public bool RememberMe { get; set; }
     }
 
 }
